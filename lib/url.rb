@@ -16,4 +16,8 @@ class Url
   def self.ALBUM(album)
     "#{MAIN_SITE}/search/ajax-album-search/?field=title&query=#{album}&sEcho=1&iColumns=4&sColumns=&iDisplayStart=0"
   end
+  
+  def self.SIMILAR(id)
+    "#{MAIN_SITE}/band/ajax-recommendations/id/#{id}?showMoreSimilar=1"
+  end
 end
