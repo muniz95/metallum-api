@@ -15,9 +15,9 @@ class Band
     page.css("div#band_disco ul li:eq(1) a").map { |link|
       band_values['discography'] = show_band_discography link['href']
     }
-    # members['current'] = show_band_members page, "current"
-    # members['past'] = show_band_members page, "past"
-    # members['live'] = show_band_members page, "live"
+    members['current'] = show_band_members page, "current"
+    members['past'] = show_band_members page, "past"
+    members['live'] = show_band_members page, "live"
     band_values['members'] = members
     page.css("div#band_tab_discography").map do |prev_elem|
       prev_elem.previous_element.css('li:eq(4) a').map do |link|
@@ -29,7 +29,7 @@ class Band
         band_values['links'] = show_band_links link['href']
       end
     end
-    
+
     band_values
   end
 
@@ -50,17 +50,17 @@ class Band
   def self.show_band_members(page, type)
     members = []
     member = {}
-    member_keys = {0 => "name", 1 => "instrument", 2 => "bands"}
-    page.css("div#band_tab_members_#{type} div table tr td").each_with_index do |item, i|
-      member[member_keys[((i+3)%3)]] = item.content.strip.split.join " "
-      if (i+3)%3 == 2
+    member_keys = {0 => "name", 1 => "instrument"}
+    page.css("div#band_tab_members_#{type} div table tr.lineupRow td").each_with_index do |item, i|
+      member[member_keys[((i+2)%2)]] = item.content.strip.split.join " "
+      if (i+2)%2 == 1
         members.push member
         member = {}
       end
     end
     members
   end
-  
+
   def self.show_similar_bands(url)
     res = Nokogiri::HTML Parse.get_url url
     bands, band = [], {}
@@ -74,7 +74,7 @@ class Band
     end
     bands
   end
-  
+
   def self.show_band_links(url)
     res = Nokogiri::HTML Parse.get_url url
     links, link = [], {}
@@ -85,5 +85,5 @@ class Band
     end
     links
   end
-  
+
 end
