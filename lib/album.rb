@@ -1,7 +1,6 @@
 class Album
 
   def self.show_album_page(html)
-    # File.write 'out.html', html
     page = Nokogiri::HTML(html)
     album_values = {}
     album_keys = {0 => "type", 1 => "release", 2 => "catalog_id", 3 => "label", 4 => "format", 5 => "reviews"}
