@@ -1,12 +1,22 @@
-# metallum-api
-A RESTful API for Metal Archives. This is a WIP project, don't expect too much from it.
+# metallum_api
 
-You can test it at [metallum.herokuapp.com] (depends **A LOT** of the Heroku avaliability, as I am using a free plan)
+A library for Dart developers.
 
-## Endpoints
+Created from templates made available by Stagehand under a BSD-style
+[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
 
-- /band/{name_of_the_band}
+## Usage
 
-## TODO
+A simple usage example:
 
-Almost all features from Metal Archives
+    import 'package:metallum_api/metallum_api.dart';
+
+    main() {
+      var awesome = new Awesome();
+    }
+
+## Features and bugs
+
+Please file feature requests and bugs at the [issue tracker][tracker].
+
+[tracker]: http://example.com/issues/replaceme
