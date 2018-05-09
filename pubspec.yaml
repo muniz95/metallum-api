@@ -5,7 +5,7 @@ homepage: https://github.com/muniz95/metallum-api
 author: Rodrigo Muniz <rodrigo.temiski1995@gmail.com>
 
 environment:
-  sdk: '>=1.20.1'
+  sdk: '>=1.20.1 <2.0.0'
 
 dependencies:
   html: any

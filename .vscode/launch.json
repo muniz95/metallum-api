@@ -9,7 +9,7 @@
             "program": "${workspaceFolder}/example/main.dart",
             "request": "launch",
             "type": "dart",
-            "previewDart2": null
+            "previewDart2": ""
         }
     ]
 }

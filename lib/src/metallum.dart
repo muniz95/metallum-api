@@ -1,7 +1,11 @@
 import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:metallum/src/urls.dart';
 import 'package:metallum/src/wrapper/band.dart';
 
 getLatestBands() async {
-  http.Response res = await http.get('https://www.metal-archives.com/archives/band-list/by/created');
-  parseBandList(res.body);
+  DateTime now = new DateTime.now();
+  String url = bandList(now.year, now.month);
+  http.Response res = await http.get(url);
+  parseBandList(JSON.decode(res.body));
 }

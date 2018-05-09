@@ -1,36 +1,27 @@
 import 'package:metallum/metallum.dart';
 import 'package:metallum/src/util/date.dart';
-import 'package:metallum/src/util/html_parser.dart';
 import 'package:html/dom.dart';
+import 'package:html/dom_parsing.dart';
+import 'package:metallum/src/util/html_parser.dart';
 
-List<Band> parseBandList(String html) {
+List<Band> parseBandList(Map<String, dynamic> payload) {
   List<Band> listBand = new List<Band>();
-  Document document = parseStringToHTML(html);
-  List<Element> nodes = document
-    .querySelectorAll('#bandList tr')
-    // .where((Element e) => e.attributes.containsKey('class'))
-    .toList();
-  nodes.forEach((Element node) { listBand.add(parseBand(node)); });
+  for (List<String> row in payload['aaData']) {
+    listBand.add(parseBand(row));
+  }
   return listBand;
 }
 
-List<Band> parseLatestReleases(String html) {
-  List<Band> listBand = new List<Band>();
-  Document document = parseStringToHTML(html);
-  List<Element> nodes = document.querySelectorAll('td table.News')[0].querySelectorAll('tr');
-  nodes.removeRange(0, 1);
-  nodes.forEach((Element node) { listBand.add(parseRelease(node)); });
-  return listBand;
-}
-
-Band parseBand(Element el) {
-  String name = el.children[0].text;
-  String country = el.children[1].text;
-  String genre = el.children[2].text;
-  DateTime addedOn = parseFullDate(el.children[3].text, 2017);
-  return new Band();
-}
-
-Band parseRelease(Element el) {
-  return new Band();
+Band parseBand(List<String> row) {
+  // String date = row[0];
+  String name = new Element.html(row[1]).text;
+  String country = new Element.html(row[2]).text;
+  String genre = row[3];
+  // DateTime addedOn = parseFullDate(row[4], 2017);
+  return new Band(
+    name:name,
+    country:country,
+    genre:genre,
+    // addedOn:addedOn,
+  );
 }
