@@ -17,7 +17,8 @@ DateTime parseFullDate(String fullDate, int year) {
   List<String> shards = fullDate.split(' ');
   // Gets the first and second elements (month name and day)
   int month = monthNames[shards[0]];
-  int day = int.parse(shards[1].replaceAll(new RegExp(r'th|st|nd|rd'), ''));
+  String dayParsed = shards[1].replaceAll(new RegExp(r'(th|st|nd|rd),'), '');
+  int day = int.parse(dayParsed);
 
   return new DateTime(year, month, day);
 }

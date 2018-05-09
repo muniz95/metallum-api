@@ -28,4 +28,6 @@ class Band {
     this.pics,
     this.addedOn
   });
+
+  toString() => '${this.name} from ${this.country}';
 }

@@ -7,5 +7,5 @@ getLatestBands() async {
   DateTime now = new DateTime.now();
   String url = bandList(now.year, now.month);
   http.Response res = await http.get(url);
-  parseBandList(JSON.decode(res.body));
+  return parseBandList(JSON.decode(res.body));
 }
