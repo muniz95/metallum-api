@@ -5,4 +5,4 @@ library metallum;
 
 export 'src/metallum.dart';
 
-// TODO: Export any libraries intended for clients of this package.
+export 'src/model/band.dart';
