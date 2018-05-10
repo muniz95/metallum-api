@@ -22,3 +22,21 @@ getLatestAddedArtists(int year, int month) async {
   http.Response res = await http.get(url);
   return parseLatestAddedArtistsList(JSON.decode(res.body));
 }
+
+getLatestUpdatedBands(int year, int month) async {
+  String url = latestUpdatedBands(year, month);
+  http.Response res = await http.get(url);
+  return parseLatestUpdatedBandsList(JSON.decode(res.body));
+}
+
+getLatestUpdatedLabels(int year, int month) async {
+  String url = latestUpdatedLabels(year, month);
+  http.Response res = await http.get(url);
+  return parseLatestUpdatedLabelsList(JSON.decode(res.body));
+}
+
+getLatestUpdatedArtists(int year, int month) async {
+  String url = latestUpdatedArtists(year, month);
+  http.Response res = await http.get(url);
+  return parseLatestUpdatedArtistsList(JSON.decode(res.body));
+}
