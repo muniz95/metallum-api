@@ -3,9 +3,8 @@ import 'dart:convert';
 import 'package:metallum/src/urls.dart';
 import 'package:metallum/src/wrapper/band.dart';
 
-getLatestBands() async {
-  DateTime now = new DateTime.now();
-  String url = bandList(now.year, now.month);
+getLatestBands(int year, int month) async {
+  String url = bandList(year, month);
   http.Response res = await http.get(url);
   return parseBandList(JSON.decode(res.body));
 }

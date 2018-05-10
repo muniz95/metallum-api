@@ -1,7 +1,6 @@
 import 'package:metallum/metallum.dart';
 
 main() async {
-  print('Heavy Metal is the law!');
-  List<Band> bands = await getLatestBands();
+  List<Band> bands = await getLatestBands(new DateTime.now().year, new DateTime.now().month);
   bands.forEach(print);
 }
