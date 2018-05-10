@@ -14,9 +14,10 @@ Map<String, int> monthNames = {
 };
 
 DateTime parseMonthDay(String fullDate, int year) {
-  List<String> shards = fullDate.split('  ');
+  List<String> shards = fullDate.replaceAll('  ', ' ').split(' ');
   // Gets the first and second elements (month name and day)
   int month = monthNames[shards[0]];
+  print(shards);
   int day = int.parse(shards[1]);
 
   return new DateTime(year, month, day);
