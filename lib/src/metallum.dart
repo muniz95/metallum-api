@@ -6,19 +6,19 @@ import 'package:metallum/src/wrapper/band.dart';
 import 'package:metallum/src/wrapper/label.dart';
 
 getLatestAddedBands(int year, int month) async {
-  String url = latestBands(year, month);
+  String url = latestAddedBands(year, month);
   http.Response res = await http.get(url);
   return parseLatestAddedBandsList(JSON.decode(res.body));
 }
 
 getLatestAddedLabels(int year, int month) async {
-  String url = latestLabels(year, month);
+  String url = latestAddedLabels(year, month);
   http.Response res = await http.get(url);
   return parseLatestAddedLabelsList(JSON.decode(res.body));
 }
 
 getLatestAddedArtists(int year, int month) async {
-  String url = latestArtists(year, month);
+  String url = latestAddedArtists(year, month);
   http.Response res = await http.get(url);
   return parseLatestAddedArtistsList(JSON.decode(res.body));
 }
