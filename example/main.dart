@@ -5,6 +5,6 @@ main() async {
   // bands.forEach(print);
   // List<Label> labels = await getLatestLabels(new DateTime.now().year, new DateTime.now().month);
   // labels.forEach(print);
-  List<Artist> artists = await getLatestArtists(new DateTime.now().year, new DateTime.now().month);
+  List<Artist> artists = await getLatestAddedArtists(new DateTime.now().year, new DateTime.now().month);
   artists.forEach(print);
 }

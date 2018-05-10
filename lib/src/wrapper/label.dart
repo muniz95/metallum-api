@@ -2,15 +2,15 @@ import 'package:metallum/metallum.dart';
 import 'package:metallum/src/util/date.dart';
 import 'package:html/dom.dart';
 
-List<Label> parseLatestLabelsList(Map<String, dynamic> payload) {
+List<Label> parseLatestAddedLabelsList(Map<String, dynamic> payload) {
   List<Label> listLabel = new List<Label>();
   for (List<String> row in payload['aaData']) {
-    listLabel.add(parseLabel(row));
+    listLabel.add(parseLatestAddedLabel(row));
   }
   return listLabel;
 }
 
-Label parseLabel(List<String> row) {
+Label parseLatestAddedLabel(List<String> row) {
   DateTime addedOn = parseMonthDay(row[0], 2018);
   String name = new Element.html(row[1]).text;
   String country = new Element.html(row[2]).text;

@@ -2,15 +2,15 @@ import 'package:metallum/metallum.dart';
 import 'package:metallum/src/util/date.dart';
 import 'package:html/dom.dart';
 
-List<Band> parseBandList(Map<String, dynamic> payload) {
+List<Band> parseLatestAddedBandsList(Map<String, dynamic> payload) {
   List<Band> listBand = new List<Band>();
   for (List<String> row in payload['aaData']) {
-    listBand.add(parseBand(row));
+    listBand.add(parseLatestBand(row));
   }
   return listBand;
 }
 
-Band parseBand(List<String> row) {
+Band parseLatestBand(List<String> row) {
   // String date = row[0];
   String name = new Element.html(row[1]).text;
   String country = new Element.html(row[2]).text;
