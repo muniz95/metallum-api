@@ -13,6 +13,15 @@ Map<String, int> monthNames = {
   'Dec': 12,
 };
 
+DateTime parseMonthDay(String fullDate, int year) {
+  List<String> shards = fullDate.split('  ');
+  // Gets the first and second elements (month name and day)
+  int month = monthNames[shards[0]];
+  int day = int.parse(shards[1]);
+
+  return new DateTime(year, month, day);
+}
+
 DateTime parseFullDate(String fullDate, int year) {
   List<String> shards = fullDate.split(' ');
   // Gets the first and second elements (month name and day)
