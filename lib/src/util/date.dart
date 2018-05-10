@@ -31,3 +31,19 @@ DateTime parseFullDate(String fullDate, int year) {
 
   return new DateTime(year, month, day);
 }
+
+DateTime parseFullDateTime(String fullDate) {
+  List<String> shards = fullDate.split(' ');
+  // The first element is a YYYY-MM-DD date
+  // The second element is a HH:mm-ss time
+  List<String> dateShards = shards[0].split('-');
+  List<String> timeShards = shards[1].split(':');
+  int year = int.parse(dateShards[0]);
+  int month = int.parse(dateShards[1]);
+  int day = int.parse(dateShards[2]);
+  int hours = int.parse(timeShards[0]);
+  int minutes = int.parse(timeShards[1]);
+  int seconds = int.parse(timeShards[2]);
+
+  return new DateTime(year, month, day, hours, minutes, seconds);
+}

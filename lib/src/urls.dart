@@ -3,3 +3,5 @@ String latestBands(int year, int month) =>
   '$BASEURL/archives/ajax-band-list/selection/$year-${month<10?'0'+month.toString():month}/by/created//json/1?sEcho=1';
 String latestLabels(int year, int month) => 
   '$BASEURL/archives/ajax-label-list/selection/$year-${month<10?'0'+month.toString():month}/by/created//json/1?sEcho=1';
+String latestArtists(int year, int month) => 
+  '$BASEURL/archives/ajax-artist-list/selection/$year-${month<10?'0'+month.toString():month}/by/created//json/1?sEcho=1';

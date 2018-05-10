@@ -5,5 +5,6 @@ library metallum;
 
 export 'src/metallum.dart';
 
+export 'src/model/artist.dart';
 export 'src/model/band.dart';
 export 'src/model/label.dart';
