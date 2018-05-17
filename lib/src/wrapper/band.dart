@@ -1,6 +1,7 @@
 import 'package:metallum/metallum.dart';
 import 'package:metallum/src/util/date.dart';
 import 'package:html/dom.dart';
+import 'package:metallum/src/util/html_parser.dart';
 
 List<Band> parseLatestAddedBandsList(Map<String, dynamic> payload) {
   List<Band> listBand = new List<Band>();
@@ -44,4 +45,13 @@ Band parseLatestUpdatedBand(List<String> row) {
     genre:genre,
     addedOn:addedOn,
   );
+}
+
+Band parseBandPage(String html) {
+  // String date = row[0];
+  return parseBandPageDOM(parseStringToHTML(html));
+}
+
+Band parseBandPageDOM(Document document) {
+  return new Band();
 }
