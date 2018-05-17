@@ -53,5 +53,22 @@ Band parseBandPage(String html) {
 }
 
 Band parseBandPageDOM(Document document) {
-  return new Band();
+  List<Element> floatLeft = document
+    .querySelector('dl.float_left')
+    .querySelectorAll('dd');
+  List<Element> floatRight = document
+    .querySelector('dl.float_right')
+    .querySelectorAll('dd');
+  String name = document.querySelector('.band_name').text;
+  String country = floatLeft[0].text;
+  String location = floatLeft[1].text;
+  String status = floatLeft[2].text;
+  int formedIn = int.parse(floatLeft[3].text);
+  return new Band(
+    name: name,
+    country: country,
+    location: location,
+    status: status,
+    formedIn: formedIn,
+  );
 }
