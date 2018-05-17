@@ -11,4 +11,4 @@ String latestUpdatedLabels(int year, int month) =>
   '$BASEURL/archives/ajax-label-list/selection/$year-${month<10?'0'+month.toString():month}/by/modified//json/1?sEcho=1';
 String latestUpdatedArtists(int year, int month) => 
   '$BASEURL/archives/ajax-artist-list/selection/$year-${month<10?'0'+month.toString():month}/by/modified//json/1?sEcho=1';
-String band(int id) => '$BASEURL/band?id=$id';
+String band(String name, int id) => '$BASEURL/bands/$name/$id';

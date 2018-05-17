@@ -64,11 +64,17 @@ Band parseBandPageDOM(Document document) {
   String location = floatLeft[1].text;
   String status = floatLeft[2].text;
   int formedIn = int.parse(floatLeft[3].text);
+  String genre = floatRight[0].text;
+  String lyricalThemes = floatRight[1].text;
+  String currentLabel = floatRight[2].text;
   return new Band(
     name: name,
     country: country,
     location: location,
     status: status,
     formedIn: formedIn,
+    genre: genre,
+    lyricalThemes: lyricalThemes,
+    currentLabel: currentLabel,
   );
 }

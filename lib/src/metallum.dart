@@ -41,8 +41,8 @@ getLatestUpdatedArtists(int year, int month) async {
   return parseLatestUpdatedArtistsList(JSON.decode(res.body));
 }
 
-getBand(int id) async {
-  String url = band(id);
+getBand(String name, int id) async {
+  String url = band(name, id);
   http.Response res = await http.get(url);
   return parseBandPage(res.body);
 }
