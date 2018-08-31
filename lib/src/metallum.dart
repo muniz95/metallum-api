@@ -46,3 +46,9 @@ getBand(String name, int id) async {
   http.Response res = await http.get(url);
   return parseBandPage(res.body);
 }
+
+getBands(String name) async {
+  String url = bandsByName(name);
+  http.Response res = await http.get(url);
+  return parseBandSearchResultsPage(jsonDecode(res.body));
+}

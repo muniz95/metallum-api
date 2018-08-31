@@ -8,8 +8,7 @@
             "name": "Dart",
             "program": "${workspaceFolder}/example/main.dart",
             "request": "launch",
-            "type": "dart",
-            "previewDart2": ""
+            "type": "dart"
         }
     ]
 }

@@ -52,6 +52,14 @@ Band parseBandPage(String html) {
   return parseBandPageDOM(parseStringToHTML(html));
 }
 
+List<Band> parseBandSearchResultsPage(Map<String, dynamic> payload) {
+  List<Band> bands = new List<Band>();
+  for (List<dynamic> row in payload['aaData']) {
+    bands.add(parseBandSearchResults(row));
+  }
+  return bands;
+}
+
 Band parseBandPageDOM(Document document) {
   List<Element> floatLeft = document
     .querySelector('dl.float_left')
@@ -76,5 +84,18 @@ Band parseBandPageDOM(Document document) {
     genre: genre,
     lyricalThemes: lyricalThemes,
     currentLabel: currentLabel,
+  );
+}
+
+Band parseBandSearchResults(List<dynamic> row) {
+  String id = new Element.html(row[0]).attributes['href'];
+  String name = new Element.html(row[0]).text;
+  print(id);
+  String genre = row[1];
+  String country = row[2];
+  return new Band(
+    name: name,
+    genre: genre,
+    country: country,
   );
 }

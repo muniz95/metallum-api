@@ -13,6 +13,8 @@ main() async {
   // labels.forEach(print);
   // List<Artist> artists = await getLatestAddedArtists(new DateTime.now().year, new DateTime.now().month);
   // artists.forEach(print);
-  Band band = await getBand('Metallica', 125);
-  print(band);
+  // Band band = await getBand('Metallica', 125);
+  // print(band);
+  List<Band> bands = await getBands('Mayhem');
+  print(bands);
 }
