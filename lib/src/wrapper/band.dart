@@ -88,14 +88,18 @@ Band parseBandPageDOM(Document document) {
 }
 
 Band parseBandSearchResults(List<dynamic> row) {
-  String id = new Element.html(row[0]).attributes['href'];
-  String name = new Element.html(row[0]).text;
-  print(id);
+  int id = _extractId(new Element.html(_removeSameLevelNodes(row[0])).attributes['href']);
+  String name = new Element.html(_removeSameLevelNodes(row[0])).text;
   String genre = row[1];
   String country = row[2];
   return new Band(
+    id: id,
     name: name,
     genre: genre,
     country: country,
   );
+
 }
+
+String _removeSameLevelNodes(String node) => node.contains(' (') ? node.split(' (')[0] : node;
+int _extractId(String href) => int.parse(href.split('/')[5]);
