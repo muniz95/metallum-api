@@ -9,9 +9,13 @@ void main() {
       expect(band.formedIn, 1981);
     });
     test('should bring a lot of bands', () async {
-      Band band = await getBand('Metallica', 125);
-      expect(band.name, 'Metallica');
-      expect(band.formedIn, 1981);
+      List<Band> bandsNamedMayhem = await getBands('Mayhem');
+      expect(bandsNamedMayhem.length, greaterThanOrEqualTo(10));
+    });
+    test('should bring at least one Mayhem from Norway', () async {
+      List<Band> bandsNamedMayhem = await getBands('Mayhem');
+      int counter = bandsNamedMayhem.where((Band b) => b.country == 'Norway').length;
+      expect(counter, greaterThanOrEqualTo(1));
     });
   });
 }
