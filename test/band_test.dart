@@ -18,22 +18,22 @@ void main() {
         int counter = bandsNamedMayhem.where((Band b) => b.country == 'Norway').length;
         expect(counter, greaterThanOrEqualTo(1));
       });
-      test('should bring at least one death metal band', () async {
+      test('should bring at least one death metal band', () {
         expect(false, true);
       });
-      test('should bring at least one band from Brazil', () async {
+      test('should bring at least one band from Brazil', () {
         expect(false, true);
       });
-      test('should bring at least one band that sings/plays about fantasy-related themes', () async {
+      test('should bring at least one band that sings/plays about fantasy-related themes', () {
         expect(false, true);
       });
-      test('should bring at least one band formed between 1990 and 2000', () async {
+      test('should bring at least one band formed between 1990 and 2000', () {
         expect(false, true);
       });
-      test('should bring at least one band that has disbanded', () async {
+      test('should bring at least one band that has disbanded', () {
         expect(false, true);
       });
-      test('should bring at least one band signed under an indie label', () async {
+      test('should bring at least one band signed under an indie label', () {
         expect(false, true);
       });
     });
