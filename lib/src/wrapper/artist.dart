@@ -12,7 +12,6 @@ List<Artist> parseLatestAddedArtistsList(Map<String, dynamic> payload) {
 
 Artist parseLatestAddedArtist(List<String> row) {
   String name = new Element.html(row[1]).text;
-  // TODO: check if country link has been fixed
   String country = new Element.html('<a>${row[2]}').text;
   List<Band> bands = row[3]
     .split(', ')
@@ -37,7 +36,6 @@ List<Artist> parseLatestUpdatedArtistsList(Map<String, dynamic> payload) {
 
 Artist parseLatestUpdatedArtist(List<String> row) {
   String name = new Element.html(row[1]).text;
-  // TODO: check if country link has been fixed
   String country = new Element.html('<a>${row[2]}').text;
   List<Band> bands = row[3]
     .split(', ')
