@@ -15,6 +15,8 @@ main() async {
   // artists.forEach(print);
   // Band band = await getBand('Metallica', 125);
   // print(band);
-  List<Band> bands = await getBands(name: 'Mayhem');
-  print(bands);
+  // List<Band> bands = await getBands(name: 'Mayhem');
+  // print(bands);
+  List<Album> albums = await getAlbums(name: 'Nemesis');
+  print(albums);
 }

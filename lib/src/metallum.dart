@@ -54,8 +54,10 @@ getBands({String name}) async {
   return parseBandSearchResultsPage(jsonDecode(res.body));
 }
 
-getAlbums({String name, String band}) async {
-  String url = albumSearch(name: name, band: band);
+getAlbums({String name, String band, int startYear, int startMonth, int endYear, int endMonth, String country,
+  String location, String label, String catalog, String identifiers, String recordingInfo, String description, String notes, String genre}) async {
+  String url = albumSearch(name: name, band: band, startYear: startYear, startMonth: startMonth, endYear: endYear, endMonth: endMonth,
+    country: country, location: location, label: label, catalog: catalog, identifiers: identifiers, recordingInfo: recordingInfo, description: description, notes: notes);
   http.Response res = await http.get(url);
   return parseAlbumResults(jsonDecode(res.body));
 }
